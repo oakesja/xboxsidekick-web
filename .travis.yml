@@ -1,3 +1,4 @@
 language: ruby
-script: bundle exec rspec
-        bundle exec cucumber
+script:
+ - bundle exec rspec
+ - bundle exec cucumber
