@@ -1,29 +1,32 @@
 require 'nokogiri'
 require 'open-uri'
+require 'achievements/scrapers/scraper'
 
-class TrueAchievementScraper
+class TrueAchievementScraper < Scraper
   BASE_URL = 'http://www.trueachievements.com'
-  NAME = 'TrueAchievements'
-  ICON = 'http://www.trueachievements.com/images/TA_podcast.png'
 
-  def scrape_game_url(game_name)
-    URI.escape("#{BASE_URL}/#{game_name}/achievements.htm")
+  def name
+    'TrueAchievements'
   end
 
-  def scrape_achievement_help(game_name, achievement_name)
-    page = Nokogiri::HTML(open(scrape_game_url(game_name)))
-    achievement_links = page.css('a.mainlink')
-    url = find_achievement_url(achievement_name, achievement_links)
-    url.empty? ? {} : {name: NAME, url: url, icon: ICON}
+  def icon
+    'http://www.trueachievements.com/images/TA_podcast.png'
   end
 
   private
-  def find_achievement_url(achievement_name, achievement_links)
-    index = achievement_links.find_index { |link| achievement_name_from(link) == achievement_name.downcase }
-    index ? "#{BASE_URL}#{achievement_links[index]['href']}" : ''
+  def game_url(game_name)
+    "#{BASE_URL}/#{game_name}/achievements.htm"
   end
 
-  def achievement_name_from(link)
-    link.text.strip.downcase
+  def achievement_links_from(page)
+    page.css('a.mainlink')
+  end
+
+  def achievement_name_from(achievement_link)
+    achievement_link.text.strip.downcase!
+  end
+
+  def achievement_url_from(achievement_link)
+    "#{BASE_URL}#{achievement_link['href']}"
   end
 end

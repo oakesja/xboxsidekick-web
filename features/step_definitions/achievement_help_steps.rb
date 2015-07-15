@@ -18,13 +18,13 @@ end
 
 Then(/^the list should include results from xboxachievements\.com$/) do
   url = 'http://www.xboxachievements.com/game/assassins-creed-liberation-hd/achievement/85371-Swamp-Queen.html'
-  attrs = {name: XboxAchievementScraper::NAME, url: url, icon: XboxAchievementScraper::ICON}
+  attrs = {name: XboxAchievementScraper.new.name, url: url, icon: XboxAchievementScraper.new.icon}
   expect(@achievement_help_list).to include attrs
 end
 
 Then(/^the list should include results from trueachievements\.com$/) do
   url = 'http://www.trueachievements.com/a183734/swamp-queen-achievement.htm'
-  attrs = {name: TrueAchievementScraper::NAME, url: url, icon: TrueAchievementScraper::ICON}
+  attrs = {name: TrueAchievementScraper.new.name, url: url, icon: TrueAchievementScraper.new.icon}
   expect(@achievement_help_list).to include attrs
 end
 
