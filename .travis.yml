@@ -1,4 +1,3 @@
 language: ruby
 script:
  - CODECLIMATE_REPO_TOKEN=96800d516b7be68ab73270fa0e3b62240bcca3be068c1768c9b0b68c5b58db8d bundle exec rspec
- - CODECLIMATE_REPO_TOKEN=96800d516b7be68ab73270fa0e3b62240bcca3be068c1768c9b0b68c5b58db8d bundle exec cucumber

@@ -5,7 +5,6 @@ gem 'nokogiri'
 gem 'oj'
 
 group :test do
-  gem 'cucumber-rails', require: false
   gem 'rspec-rails'
   gem 'codeclimate-test-reporter', require: false
 end

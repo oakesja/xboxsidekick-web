@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-class Scraper
+class AchievementScraper
   def scrape_game_url(game_name)
     URI.escape(game_url(game_name))
   end
@@ -15,11 +15,11 @@ class Scraper
 
   private
   def game_url(game_name)
-    raise 'Not implemented'
+    raise NotImplementedError
   end
 
   def achievement_links_from(page)
-    raise 'Not implemented'
+    raise NotImplementedError
   end
 
   def find_achievement_url(achievement_name, achievement_links)
@@ -28,10 +28,10 @@ class Scraper
   end
 
   def achievement_name_from(achievement_link)
-    raise 'Not implemented'
+    raise NotImplementedError
   end
 
   def achievement_url_from(achievement_link)
-    raise 'Not implemented'
+    raise NotImplementedError
   end
 end

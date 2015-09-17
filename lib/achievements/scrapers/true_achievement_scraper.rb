@@ -1,8 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
-require 'achievements/scrapers/scraper'
+require 'achievements/scrapers/achievement_scraper'
 
-class TrueAchievementScraper < Scraper
+class TrueAchievementScraper < AchievementScraper
   BASE_URL = 'http://www.trueachievements.com'
 
   def name
