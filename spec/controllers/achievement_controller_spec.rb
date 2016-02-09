@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'achievements/gather_achievement_help'
 
-RSpec.describe AchievementController do
+describe AchievementController do
   describe '#help' do
     let(:game_name) { 'game' }
     let(:achievement_name) { 'achievement' }
